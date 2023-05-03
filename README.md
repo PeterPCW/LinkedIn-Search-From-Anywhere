@@ -1,8 +1,10 @@
-# Typescript React Chrome Extension Starter
+# LinkedIn Search From Anywhere
 
 ## Overview
 
 This is a simple extension that shows a form and lets you input values to start a LinkedIn search.
+
+![LinkedIn Search From Anywhere Screenshot](extensionScreenshot.png "Screenshot")
 
 ## Use
 

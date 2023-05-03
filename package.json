@@ -1,8 +1,8 @@
 {
-  "name": "typescript-react-chrome-extension",
-  "displayName": "TypeScript React Chrome Extension Starter",
+  "name": "linkedinsearchfromanywhere",
+  "displayName": "LinkedIn Search From Anywhere",
   "version": "0.0.1",
-  "description": "Empty Chrome Extension for use as a base when building new extensions. Styling components, eslint, and not much else.",
+  "description": "Chrome Extension to search LinkedIn for people that match a search criteria.",
   "author": "Peter Williams <49111837+PeterPCW@users.noreply.github.com>",
   "packageManager": "pnpm@7.13.1",
   "private": true,

@@ -1,31 +1,18 @@
 import React, { useState } from 'react';
-import { createGlobalStyle } from 'styled-components';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CssBaseline, Box, Typography, TextField, Button } from '@mui/material';
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: #333333;
-    color: #878787;
-    font-weight: bold;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  input[type='text'] {
-    border: 1px solid #878787;
-    background-color: #333333;
-    color: #878787;
-  }
-
-  button {
-    color: #333333;
-    background-color: #878787;
-    font-weight: bold;
-  }
-`;
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#878787',
+    },
+  },
+  typography: {
+    fontWeightBold: 700,
+  },
+});
 
 interface FormState {
   [key: string]: string;
@@ -57,39 +44,68 @@ const IndexPopup = () => {
   };
   
   return (
-    <div>
-      <GlobalStyle />
-      <form onSubmit={handleSubmit}>
-        <br /><br />
-        <label>
-          First Name:
-          <input type="text" name="firstName" onChange={handleInputChange} />
-        </label><br /><br />
-        <label>
-          Last Name:
-          <input type="text" name="lastName" onChange={handleInputChange} />
-        </label><br /><br />
-        <label>
-          Title:
-          <input type="text" name="titleFreeText" onChange={handleInputChange} />
-        </label><br /><br />
-        <label>
-          Company:
-          <input type="text" name="company" onChange={handleInputChange} />
-        </label><br /><br />
-        <label>
-          School:
-          <input type="text" name="schoolFreetext" onChange={handleInputChange} />
-        </label><br /><br />
-        <label>
-          Keywords:
-          <input type="text" name="keywords" onChange={handleInputChange} />
-        </label><br /><br />
-        {/* Add more fields as needed */}
-        <button type="submit">Search</button>
-      </form>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Typography variant="h6" sx={{ mt: 3, mb: 2 }}>
+          LinkedIn Search
+        </Typography>
+        <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%', maxWidth: '400px' }}>
+          <TextField
+            fullWidth
+            label="First Name"
+            name="firstName"
+            margin="normal"
+            onChange={handleInputChange}
+            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
+          />
+          <TextField
+            fullWidth
+            label="Last Name"
+            name="lastName"
+            margin="normal"
+            onChange={handleInputChange}
+            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
+          />
+          <TextField
+            fullWidth
+            label="Title"
+            name="titleFreeText"
+            margin="normal"
+            onChange={handleInputChange}
+            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
+          />
+          <TextField
+            fullWidth
+            label="Company"
+            name="company"
+            margin="normal"
+            onChange={handleInputChange}
+            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
+          />
+          <TextField
+            fullWidth
+            label="School"
+            name="schoolFreetext"
+            margin="normal"
+            onChange={handleInputChange}
+            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
+          />
+          <TextField
+            fullWidth
+            label="Keywords"
+            name="keywords"
+            margin="normal"
+            onChange={handleInputChange}
+            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
+            />
+          <Button type="submit" variant="contained" sx={{ mt: 2 }}>
+            Search
+          </Button>
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
-}
+};
 
 export default IndexPopup;

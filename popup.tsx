@@ -1,29 +1,20 @@
 import React, { useState } from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { CssBaseline, Box, Typography, TextField, Button } from '@mui/material';
-
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#878787',
-    },
-  },
-  typography: {
-    fontWeightBold: 700,
-  },
-});
+import { ThemeProvider } from '@mui/material/styles';
+import { CssBaseline, Box, Typography, Button } from '@mui/material';
+import FormField from "./components/FormField"
+import { theme, styles } from './styles/styles';
 
 interface FormState {
   [key: string]: string;
 }
 
-const IndexPopup = () => {
+function IndexPopup() {
   const [formState, setFormState] = useState<FormState>({});
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormState((prevState) => ({ ...prevState, [name]: value }));
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const url = buildUrl(formState);
+    window.open(url, "_blank"); // Open the search URL in a new tab
   };
 
   const buildUrl = (formState: FormState) => {
@@ -35,70 +26,19 @@ const IndexPopup = () => {
       })
       .join("&");
     return `${baseUrl}?${queryParams}`;
-  }  
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const url = buildUrl(formState);
-    window.open(url, "_blank"); // Open the search URL in a new tab
   };
-  
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Box sx={styles.formContainer}>
         <Typography variant="h6" sx={{ mt: 3, mb: 2 }}>
           LinkedIn Search
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%', maxWidth: '400px' }}>
-          <TextField
-            fullWidth
-            label="First Name"
-            name="firstName"
-            margin="normal"
-            onChange={handleInputChange}
-            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
-          />
-          <TextField
-            fullWidth
-            label="Last Name"
-            name="lastName"
-            margin="normal"
-            onChange={handleInputChange}
-            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
-          />
-          <TextField
-            fullWidth
-            label="Title"
-            name="titleFreeText"
-            margin="normal"
-            onChange={handleInputChange}
-            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
-          />
-          <TextField
-            fullWidth
-            label="Company"
-            name="company"
-            margin="normal"
-            onChange={handleInputChange}
-            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
-          />
-          <TextField
-            fullWidth
-            label="School"
-            name="schoolFreetext"
-            margin="normal"
-            onChange={handleInputChange}
-            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
-          />
-          <TextField
-            fullWidth
-            label="Keywords"
-            name="keywords"
-            margin="normal"
-            onChange={handleInputChange}
-            sx={{ '& .MuiInputBase-input': { color: 'white' } }}
-            />
+          {['First Name', 'Last Name', 'Title', 'Company', 'School', 'Keywords'].map((label) => (
+            <FormField label={label} key={label} />
+          ))}
           <Button type="submit" variant="contained" sx={{ mt: 2 }}>
             Search
           </Button>
@@ -106,6 +46,6 @@ const IndexPopup = () => {
       </Box>
     </ThemeProvider>
   );
-};
+}
 
 export default IndexPopup;

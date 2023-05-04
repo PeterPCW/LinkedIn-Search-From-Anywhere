@@ -17,10 +17,12 @@ export const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
     width: '100%',
     minWidth: '500px',
     padding: '1rem',
     boxSizing: 'border-box',
+    height: 'auto',
   },
   form: {
     width: '100%',
@@ -32,3 +34,4 @@ export const styles = {
     },
   },
 };
+

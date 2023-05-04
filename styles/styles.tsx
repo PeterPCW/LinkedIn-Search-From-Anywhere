@@ -32,9 +32,10 @@ export const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: '.8rem',
+    margin: '0 0 10px',
   },
   input: {
-    margin: '3px',
+    margin: '3px !important',
   },
   button: {
     backgroundColor: '#878787',
@@ -45,4 +46,3 @@ export const styles = {
     },
   },
 };
-

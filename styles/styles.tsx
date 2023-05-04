@@ -18,6 +18,7 @@ export const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
+    minWidth: '500px',
     padding: '1rem',
     boxSizing: 'border-box',
   },

@@ -36,7 +36,7 @@ function IndexPopup() {
           LinkedIn Search
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={styles.form}>
-          {['First Name', 'Last Name', 'Title', 'Company', 'School', 'Keywords'].map((label) => (
+          {['Title', 'Company', 'School', 'Keywords'].map((label) => (
             <FormField label={label} setFormState={setFormState} key={label} sx={styles.input} />
           ))}
           <Button type="submit" variant="contained" sx={styles.button}>

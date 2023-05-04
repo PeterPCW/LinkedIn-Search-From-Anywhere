@@ -23,6 +23,7 @@ export const styles = {
     padding: '1rem',
     boxSizing: 'border-box',
     height: 'auto',
+    minHeight: '650px',
   },
   form: {
     width: '100%',

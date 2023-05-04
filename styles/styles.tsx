@@ -31,18 +31,17 @@ export const styles = {
     maxHeight: '400px',
     alignItems: 'center',
     justifyContent: 'center',
+    fontSize: '.8rem',
   },
   input: {
-    '& .MuiInputBase-input': {
-      color: '#FF6300',
-      margin: '3px',
-    },
+    margin: '3px',
   },
   button: {
-    backgroundColor: '#ff6300',
+    backgroundColor: '#878787',
+    margin: '3px',
     color: '#fff',
     '&:hover': {
-      backgroundColor: '#ff6300',
+      backgroundColor: '#0077b5',
     },
   },
 };

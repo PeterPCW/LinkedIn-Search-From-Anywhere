@@ -32,14 +32,14 @@ function IndexPopup() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={styles.formContainer}>
-        <Typography variant="h6" sx={{ mt: 3, mb: 2 }}>
+        <Typography variant="h5">
           LinkedIn Search
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%', maxWidth: '400px' }}>
+        <Box component="form" onSubmit={handleSubmit} sx={styles.form}>
           {['First Name', 'Last Name', 'Title', 'Company', 'School', 'Keywords'].map((label) => (
-            <FormField label={label} key={label} />
+            <FormField label={label} setFormState={setFormState} key={label} sx={styles.input} />
           ))}
-          <Button type="submit" variant="contained" sx={{ mt: 2 }}>
+          <Button type="submit" variant="contained" sx={styles.button}>
             Search
           </Button>
         </Box>

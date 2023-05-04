@@ -3,9 +3,10 @@ import { TextField } from '@mui/material';
 
 interface FormFieldProps {
   label: string;
+  setFormState: React.Dispatch<React.SetStateAction<{[key: string]: string}>>;
 }
 
-const FormField = ({ label }: FormFieldProps) => {
+const FormField = ({ label, setFormState }: FormFieldProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormState((prevState) => ({ ...prevState, [name]: value }));

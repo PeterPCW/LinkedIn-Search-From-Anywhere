@@ -2,9 +2,16 @@ import os
 # import shutil
 import time
 import msvcrt
+import argparse
 
-# Build the React app - includes eslint and jest per package.json
-os.system("npm run build")
+# Parse command-line arguments
+parser = argparse.ArgumentParser()
+parser.add_argument('--no-build', action='store_true', help='skip the build step')
+args = parser.parse_args()
+
+# Build the React app if --no-build is not specified
+if not args.no_build:
+    os.system("npm run build")
 
 # Wait for user input to write the commit message, use default after 30s
 def get_commit_message(timeout=30):

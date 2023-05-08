@@ -29,13 +29,13 @@ export const styles = {
     width: '333px',
     maxWidth: '333px',
     maxHeight: '400px',
-    alignItems: 'center',
+    textAlign: 'center',
     justifyContent: 'center',
     fontSize: '.8rem',
-    margin: '0 0 10px',
+    margin: '33px 0',
   },
   input: {
-    margin: '3px',
+    margin: '8.7px',
   },
   button: {
     backgroundColor: '#878787',

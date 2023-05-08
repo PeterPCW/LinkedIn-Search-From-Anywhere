@@ -35,7 +35,7 @@ export const styles = {
     margin: '0 0 10px',
   },
   input: {
-    margin: '3px !important',
+    margin: '3px',
   },
   button: {
     backgroundColor: '#878787',

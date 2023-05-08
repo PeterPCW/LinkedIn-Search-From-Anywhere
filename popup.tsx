@@ -21,7 +21,7 @@ function IndexPopup() {
     const baseUrl = "https://www.linkedin.com/search/results/people/"; // LinkedIn Search base URL
     const queryParams = Object.entries(formState)
       .map(([key, value]) => {
-        const encodedValue = encodeURIComponent(value.replace(/\s/g, "%20").replace(/-/g, "%2D").replace(/\./g, "%2E").replace(/,/g, "%2C").replace(/"/g, "%22").replace(/'/g, "%27").replace(/:/g, "%3A").replace(/_/g, "%5F"));
+        const encodedValue = encodeURIComponent(value.replace(/\s/g, "%20").replace(/-/g, "%2D").replace(/\./g, "%2E").replace(/,/g, "%2C").replace(/"/g, "%22").replace(/'/g, "%27").replace(/:/g, "%3A").replace(/_/g, "%5F").replace(/&/g, "%26"));
         return `${key}=${encodedValue}`;
       })
       .join("&");
@@ -36,8 +36,8 @@ function IndexPopup() {
           LinkedIn Search
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={styles.form}>
-          {['Title', 'Company', 'School', 'Keywords'].map((label) => (
-            <FormField label={label} setFormState={setFormState} key={label} sx={styles.input} />
+          {['Title', 'Company', 'Keywords'].map((label) => (
+            <FormField sx={styles.input} label={label} setFormState={setFormState} key={label} />
           ))}
           <Button type="submit" variant="contained" sx={styles.button}>
             Search

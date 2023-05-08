@@ -32,10 +32,10 @@ export const styles = {
     textAlign: 'center',
     justifyContent: 'center',
     fontSize: '.8rem',
-    margin: '33px 0',
+    margin: '10px 0',
   },
   input: {
-    margin: '8.7px',
+    margin: '10px',
   },
   button: {
     backgroundColor: '#878787',
